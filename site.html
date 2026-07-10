@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Калина-Малина — Ссылки и приложение</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, #F6F4F3 0%, #EDE3DD 100%);
+            color: #543115;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px 20px;
+            line-height: 1.5;
+        }
+
+        .container {
+            max-width: 520px;
+            width: 100%;
+            background: #fff;
+            border-radius: 25px;
+            padding: 40px 30px;
+            box-shadow: 0 10px 40px rgba(84, 49, 21, 0.08);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .logo {
+            font-size: 36px;
+            font-weight: 700;
+            color: #543115;
+            margin-bottom: 8px;
+            letter-spacing: -0.5px;
+        }
+
+        .logo span {
+            color: #E51C4C;
+        }
+
+        .subtitle {
+            font-size: 15px;
+            color: #8F7E73;
+            font-weight: 400;
+        }
+
+        .section {
+            margin-bottom: 28px;
+        }
+
+        .section-title {
+            font-size: 13px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            color: #AA9C93;
+            margin-bottom: 14px;
+            text-align: center;
+        }
+
+        .link-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            width: 100%;
+            padding: 16px 20px;
+            background: #F6F4F3;
+            border: 1.5px solid transparent;
+            border-radius: 15px;
+            color: #543115;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 500;
+            margin-bottom: 10px;
+            transition: all 0.25s ease;
+            cursor: pointer;
+        }
+
+        .link-btn:hover {
+            background: #EDE3DD;
+            border-color: #DDD7D4;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(84, 49, 21, 0.08);
+        }
+
+        .link-btn:active {
+            transform: translateY(0);
+        }
+
+        .link-btn.primary {
+            background: #E51C4C;
+            color: #fff;
+        }
+
+        .link-btn.primary:hover {
+            background: #D94E4F;
+            border-color: transparent;
+            box-shadow: 0 8px 20px rgba(229, 28, 76, 0.25);
+        }
+
+        .link-btn.appstore {
+            background: #543115;
+            color: #fff;
+        }
+
+        .link-btn.appstore:hover {
+            background: #3d240f;
+            border-color: transparent;
+            box-shadow: 0 8px 20px rgba(84, 49, 21, 0.25);
+        }
+
+        .link-btn.googleplay {
+            background: #428f59;
+            color: #fff;
+        }
+
+        .link-btn.googleplay:hover {
+            background: #357547;
+            border-color: transparent;
+            box-shadow: 0 8px 20px rgba(66, 143, 89, 0.25);
+        }
+
+        .link-btn.rustore {
+            background: #007aff;
+            color: #fff;
+        }
+
+        .link-btn.rustore:hover {
+            background: #0062cc;
+            border-color: transparent;
+            box-shadow: 0 8px 20px rgba(0, 122, 255, 0.25);
+        }
+
+        .icon {
+            width: 24px;
+            height: 24px;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .icon svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        .divider {
+            height: 1px;
+            background: #EDE3DD;
+            margin: 24px 0;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .footer-text {
+            font-size: 13px;
+            color: #AA9C93;
+        }
+
+        .footer-text a {
+            color: #E51C4C;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .footer-text a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 20px 12px;
+            }
+            .container {
+                padding: 30px 20px;
+                border-radius: 20px;
+            }
+            .logo {
+                font-size: 28px;
+            }
+            .link-btn {
+                padding: 14px 16px;
+                font-size: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo">Калина<span>-</span>Малина</div>
+            <div class="subtitle">Фермерские продукты из Сибири</div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">Мы на карте</div>
+            
+            <a href="https://2gis.ru/krasnoyarsk/geo/70000001067055763" target="_blank" class="link-btn">
+                <span class="icon">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 0 1 0-5 2.5 2.5 0 0 1 0 5z"/>
+                    </svg>
+                </span>
+                <span>2ГИС</span>
+            </a>
+
+            <a href="https://yandex.ru/maps/org/kalina_malina/183474651882/?ll=92.891756%2C56.054467&z=15" target="_blank" class="link-btn">
+                <span class="icon">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 0 1 0-5 2.5 2.5 0 0 1 0 5z"/>
+                    </svg>
+                </span>
+                <span>Яндекс Карты</span>
+            </a>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="section">
+            <div class="section-title">Мобильное приложение</div>
+            
+            <a href="https://apps.apple.com/ru/app/%D0%BA%D0%B0%D0%BB%D0%B8%D0%BD%D0%B0-%D0%BC%D0%B0%D0%BB%D0%B8%D0%BD%D0%B0-%D0%B4%D0%BE%D1%81%D1%82%D0%B0%D0%B2%D0%BA%D0%B0-%D0%B5%D0%B4%D1%8B/id1597124884" target="_blank" class="link-btn appstore">
+                <span class="icon">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.47-2.35 1.05-3.11z"/>
+                    </svg>
+                </span>
+                <span>App Store</span>
+            </a>
+
+            <a href="https://play.google.com/store/apps/details?id=com.getmeback.kalinamalina" target="_blank" class="link-btn googleplay">
+                <span class="icon">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M3 20.5v-17c0-.83.52-1.28 1-1.5l10 10-10 10c-.48-.22-1-.67-1-1.5m12.5-8.5l-2.5 2.5-9.5-9.5 9.5-5.5 2.5 12.5m-2 2l-9 5 9-9 2 2-2 2m3.5-2l-2.5-2.5 2.5-2.5 3.5 2-3.5 3"/>
+                    </svg>
+                </span>
+                <span>Google Play</span>
+            </a>
+
+            <a href="https://www.rustore.ru/catalog/app/com.getmeback.kalinamalina" target="_blank" class="link-btn rustore">
+                <span class="icon">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                    </svg>
+                </span>
+                <span>RuStore</span>
+            </a>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="footer">
+            <div class="footer-text">
+                Наш сайт: <a href="https://kalina-malina.ru" target="_blank">kalina-malina.ru</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
