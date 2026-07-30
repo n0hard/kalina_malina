@@ -6,8 +6,18 @@
     <title>Калина-Малина — Ссылки и приложение</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --km-pink: #e40046;
+            --km-brown: #572b10;
+            --km-white: #ffffff;
+            --km-cream: #faf8f6;
+            --km-beige: #f0ebe5;
+            --km-light-brown: #8a6b5a;
+            --km-gray-leaf: #c4bdb6;
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -15,60 +25,116 @@
         }
 
         body {
-            font-family: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: linear-gradient(135deg, #F6F4F3 0%, #EDE3DD 100%);
-            color: #543115;
+            font-family: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--km-beige);
+            color: var(--km-brown);
             min-height: 100vh;
             display: flex;
             flex-direction: column;
             align-items: center;
             padding: 40px 20px;
             line-height: 1.5;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* Декоративные листочки по углам */
+        .leaf-deco {
+            position: fixed;
+            width: 80px;
+            height: 80px;
+            opacity: 0.25;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .leaf-deco.top-right {
+            top: 20px;
+            right: 20px;
+            transform: rotate(-15deg);
+        }
+
+        .leaf-deco.bottom-left {
+            bottom: 20px;
+            left: 20px;
+            transform: rotate(165deg);
+        }
+
+        .leaf-deco svg {
+            width: 100%;
+            height: 100%;
+            fill: var(--km-gray-leaf);
         }
 
         .container {
             max-width: 520px;
             width: 100%;
-            background: #fff;
-            border-radius: 25px;
-            padding: 40px 30px;
-            box-shadow: 0 10px 40px rgba(84, 49, 21, 0.08);
+            background: var(--km-beige);
+            border-radius: 24px;
+            padding: 44px 32px;
+            box-shadow: 0 8px 32px rgba(87, 43, 16, 0.08);
+            position: relative;
+            z-index: 1;
         }
 
         .header {
             text-align: center;
-            margin-bottom: 30px;
+            margin-bottom: 36px;
         }
 
-        .logo {
-            font-size: 36px;
+        .logo-wrap {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-img {
+            width: 110px;
+            height: auto;
+            display: block;
+        }
+
+        .logo-text {
+            font-family: 'PT Serif', Georgia, serif;
+            font-size: 38px;
             font-weight: 700;
-            color: #543115;
-            margin-bottom: 8px;
-            letter-spacing: -0.5px;
+            color: var(--km-brown);
+            line-height: 1.1;
+            letter-spacing: 0.5px;
         }
 
-        .logo span {
-            color: #E51C4C;
+        .logo-text span {
+            display: block;
         }
 
-        .subtitle {
-            font-size: 15px;
-            color: #8F7E73;
-            font-weight: 400;
+        .descriptor {
+            font-family: 'Manrope', sans-serif;
+            font-size: 13px;
+            font-weight: 600;
+            text-transform: lowercase;
+            letter-spacing: 2px;
+            color: var(--km-light-brown);
+            margin-top: 8px;
+        }
+
+        .descriptor span {
+            color: var(--km-pink);
+            margin: 0 6px;
         }
 
         .section {
-            margin-bottom: 28px;
+            margin-bottom: 32px;
         }
 
         .section-title {
-            font-size: 13px;
-            font-weight: 600;
+            font-family: 'PT Serif', Georgia, serif;
+            font-size: 14px;
+            font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 1.2px;
-            color: #AA9C93;
-            margin-bottom: 14px;
+            letter-spacing: 1.5px;
+            color: var(--km-light-brown);
+            margin-bottom: 16px;
             text-align: center;
         }
 
@@ -79,23 +145,41 @@
             gap: 12px;
             width: 100%;
             padding: 16px 20px;
-            background: #F6F4F3;
+            background: var(--km-cream);
             border: 1.5px solid transparent;
-            border-radius: 15px;
-            color: #543115;
+            border-radius: 16px;
+            color: var(--km-brown);
             text-decoration: none;
+            font-family: 'Manrope', sans-serif;
             font-size: 16px;
-            font-weight: 500;
+            font-weight: 600;
             margin-bottom: 10px;
             transition: all 0.25s ease;
             cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .link-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(228, 0, 70, 0.06), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .link-btn:hover::before {
+            left: 100%;
         }
 
         .link-btn:hover {
-            background: #EDE3DD;
-            border-color: #DDD7D4;
+            background: var(--km-beige);
+            border-color: #ddd7d0;
             transform: translateY(-2px);
-            box-shadow: 0 6px 16px rgba(84, 49, 21, 0.08);
+            box-shadow: 0 6px 18px rgba(87, 43, 16, 0.1);
         }
 
         .link-btn:active {
@@ -103,47 +187,47 @@
         }
 
         .link-btn.primary {
-            background: #E51C4C;
-            color: #fff;
+            background: var(--km-pink);
+            color: var(--km-white);
         }
 
         .link-btn.primary:hover {
-            background: #D94E4F;
+            background: #c9003d;
             border-color: transparent;
-            box-shadow: 0 8px 20px rgba(229, 28, 76, 0.25);
+            box-shadow: 0 8px 24px rgba(228, 0, 70, 0.3);
         }
 
         .link-btn.appstore {
-            background: #543115;
-            color: #fff;
+            background: var(--km-brown);
+            color: var(--km-white);
         }
 
         .link-btn.appstore:hover {
-            background: #3d240f;
+            background: #3d1f0b;
             border-color: transparent;
-            box-shadow: 0 8px 20px rgba(84, 49, 21, 0.25);
+            box-shadow: 0 8px 24px rgba(87, 43, 16, 0.3);
         }
 
         .link-btn.googleplay {
             background: #428f59;
-            color: #fff;
+            color: var(--km-white);
         }
 
         .link-btn.googleplay:hover {
             background: #357547;
             border-color: transparent;
-            box-shadow: 0 8px 20px rgba(66, 143, 89, 0.25);
+            box-shadow: 0 8px 24px rgba(66, 143, 89, 0.3);
         }
 
         .link-btn.rustore {
             background: #007aff;
-            color: #fff;
+            color: var(--km-white);
         }
 
         .link-btn.rustore:hover {
             background: #0062cc;
             border-color: transparent;
-            box-shadow: 0 8px 20px rgba(0, 122, 255, 0.25);
+            box-shadow: 0 8px 24px rgba(0, 122, 255, 0.3);
         }
 
         .icon {
@@ -162,8 +246,8 @@
 
         .divider {
             height: 1px;
-            background: #EDE3DD;
-            margin: 24px 0;
+            background: var(--km-beige);
+            margin: 28px 0;
         }
 
         .footer {
@@ -173,42 +257,81 @@
 
         .footer-text {
             font-size: 13px;
-            color: #AA9C93;
-        }
-
-        .footer-text a {
-            color: #E51C4C;
-            text-decoration: none;
+            color: var(--km-light-brown);
             font-weight: 500;
         }
 
+        .footer-text a {
+            color: var(--km-pink);
+            text-decoration: none;
+            font-weight: 700;
+            transition: color 0.2s ease;
+        }
+
         .footer-text a:hover {
+            color: var(--km-brown);
             text-decoration: underline;
         }
 
         @media (max-width: 480px) {
             body {
-                padding: 20px 12px;
+                padding: 24px 14px;
             }
+
             .container {
-                padding: 30px 20px;
+                padding: 32px 22px;
                 border-radius: 20px;
             }
-            .logo {
-                font-size: 28px;
+
+            .logo-text {
+                font-size: 32px;
             }
+
+            .logo-img {
+                width: 90px;
+            }
+
             .link-btn {
                 padding: 14px 16px;
                 font-size: 15px;
+            }
+
+            .leaf-deco {
+                width: 60px;
+                height: 60px;
             }
         }
     </style>
 </head>
 <body>
+    <!-- Декоративные листочки -->
+    <div class="leaf-deco top-right">
+        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <path d="M50 95 C50 95 10 70 10 40 C10 20 25 5 50 5 C75 5 90 20 90 40 C90 70 50 95 50 95Z"/>
+            <path d="M50 95 Q50 50 50 10" stroke="currentColor" stroke-width="2" fill="none" opacity="0.5"/>
+            <path d="M50 60 Q30 45 20 30" stroke="currentColor" stroke-width="1.5" fill="none" opacity="0.4"/>
+            <path d="M50 50 Q70 35 80 25" stroke="currentColor" stroke-width="1.5" fill="none" opacity="0.4"/>
+        </svg>
+    </div>
+    <div class="leaf-deco bottom-left">
+        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <path d="M50 95 C50 95 10 70 10 40 C10 20 25 5 50 5 C75 5 90 20 90 40 C90 70 50 95 50 95Z"/>
+            <path d="M50 95 Q50 50 50 10" stroke="currentColor" stroke-width="2" fill="none" opacity="0.5"/>
+            <path d="M50 60 Q30 45 20 30" stroke="currentColor" stroke-width="1.5" fill="none" opacity="0.4"/>
+            <path d="M50 50 Q70 35 80 25" stroke="currentColor" stroke-width="1.5" fill="none" opacity="0.4"/>
+        </svg>
+    </div>
+
     <div class="container">
         <div class="header">
-            <div class="logo">Калина<span>-</span>Малина</div>
-            <div class="subtitle">Фермерские продукты из Сибири</div>
+            <div class="logo-wrap">
+                <img src="logo.png" alt="Калина-Малина" class="logo-img">
+                <div class="logo-text">
+                    <span>Калина</span>
+                    <span>Малина</span>
+                </div>
+                <div class="descriptor">локально<span>•</span>вкусно<span>•</span>натурально</div>
+            </div>
         </div>
 
         <div class="section">
